@@ -3,7 +3,7 @@ package algorithms;
 import java.util.Arrays;
 
 /**
- * 题目：
+ * No.1 题目：
  * 给出一个数组sums，返回数组中相加等于target的两个数的下标
  * 假设每个输入只有一个答案，而且不能重复使用相同的元素
  * 
