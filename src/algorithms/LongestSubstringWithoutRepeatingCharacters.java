@@ -2,6 +2,16 @@ package algorithms;
 
 import java.util.HashMap;
 
+/**
+ * No3. 题目：
+ * 给出一个string，求不带有重复字符的最长子串
+ * 如"abcabcbb"，答案为"abc"，长度为3
+ * 如"bbbbb"，答案为"b"，长度为1
+ * 如"pwwkew"，答案为"wke"，长度为3
+ * 
+ * @author peige
+ *
+ */
 public class LongestSubstringWithoutRepeatingCharacters {
 
 	public int lengthOfLongestSubstring(String s) {
