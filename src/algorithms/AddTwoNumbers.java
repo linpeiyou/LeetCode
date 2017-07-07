@@ -40,6 +40,7 @@ class ListNode {
 public class AddTwoNumbers {
 	
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		/*
 		int len1 = 0;
 		int len2 = 0;
 		
@@ -78,6 +79,30 @@ public class AddTwoNumbers {
 		}
 		
 		return result;
+		*/
+		
+		ListNode c1 = l1;
+		ListNode c2 = l2;
+		ListNode sentinal = new ListNode(0);
+		ListNode d = sentinal;
+		int sum = 0;
+		while(c1 != null || c2 != null) {
+			sum /= 10;
+			if(c1 != null) {
+				sum += c1.val;
+				c1 = c1.next;
+			}
+			if(c2 != null) {
+				sum += c2.val;
+				c2 = c2.next;
+			}
+			d.next = new ListNode(sum % 10);
+			d = d.next;
+		}
+		if(sum / 10 == 1) {
+			d.next = new ListNode(1);
+		}
+		return sentinal.next;
 	}
 	
 	public static void main(String[] args) {
@@ -90,10 +115,10 @@ public class AddTwoNumbers {
 		l2.next = new ListNode(6);
 		l2.next.next = new ListNode(4);
 		
-		System.out.println(l1);
-		System.out.println(l2);
+		System.out.println(l1);	// 2 - 4 - 3
+		System.out.println(l2); // 5 - 6 - 4
 		
-		System.out.println(new AddTwoNumbers().addTwoNumbers(l1, l2));
+		System.out.println(new AddTwoNumbers().addTwoNumbers(l1, l2));	// 7 - 0 - 8
 		
 		// ======================= Test2 ==========================
 		ListNode ll1 = new ListNode(9);
@@ -103,12 +128,14 @@ public class AddTwoNumbers {
 			tmpNode.next = new ListNode(9);
 			tmpNode = tmpNode.next;
 		}
+		// 0 - 0 - 0 - 0 - 0 - 0 - 0 - 0 - 0 - 0 - 1
 		System.out.println(new AddTwoNumbers().addTwoNumbers(ll1, ll2));
 		
 		// ======================= Test3 ==========================
 		ListNode l3_1 = new ListNode(0);
 		ListNode l3_2 = new ListNode(7);
 		l3_2.next = new ListNode(3);
+		// 7 - 3
 		System.out.println(new AddTwoNumbers().addTwoNumbers(l3_1, l3_2));
 		
 	}
